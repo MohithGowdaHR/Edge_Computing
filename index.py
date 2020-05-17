@@ -6,9 +6,8 @@ Created on Sun May 17 11:26:49 2020
 @author: mohithgowdahr
 """
 
-
-from sklearn.externals import joblib
 from datetime import datetime 
+import pickle
 
 year = ""
 month = ""
@@ -17,8 +16,8 @@ hour = ""
 minute = ""
 second = ""
 
-temperature_model = joblib.load('temperature.pkl')
-humidity_model = joblib.load('temperature.pkl')
+temperature_model = pickle.load(open('temperature_regressor.pkl', 'rb'))
+humidity_model = pickle.load(open('humidity_regressor.pkl', 'rb'))
 
 def predict(Currentdatetime,pastHumidity,pastTemperature):
     

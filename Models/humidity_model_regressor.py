@@ -11,7 +11,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.externals import joblib
+import pickle
 
 
 #importing the dataset
@@ -52,6 +52,7 @@ cm = confusion_matrix(y_test, y_pred)
 print(cm)
 
 #joblib.dump(classifier, 'humidity.pkl')
+pickle.dump(classifier,open( 'humidity_regressor.pkl', 'ab') )
 
 #-------------Features Importance random forest
 names = dataset.iloc[:,:-1].columns
@@ -68,3 +69,11 @@ plt.barh(np.arange(len(names)), sorted_importances, height = 0.7)
 plt.yticks(np.arange(len(names)), names[indices], fontsize=7)
 plt.xlabel('Relative Importance')
 plt.show()
+
+count = 0;
+for i in range(len(y_pred)):
+    if(y_pred[i] == y_test[i]):
+        count+=1
+#acc 100%
+        
+        

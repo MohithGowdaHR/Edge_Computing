@@ -11,7 +11,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.externals import joblib
+import pickle
 
 
 #importing the dataset
@@ -39,7 +39,7 @@ print("best parameters =" + str(grid_search.best_params_))
 #-------------------------------------------------------------------------
 
 #fitting RandomForest regression with best params 
-classifier = RandomForestClassifier(n_estimators = 100, criterion = "gini", max_features = 'log2',  random_state = 0)
+classifier = RandomForestClassifier(n_estimators = 100, criterion = "gini", max_features = 'sqrt',  random_state = 0)
 classifier.fit(x_train, y_train)
 
 #predicting the tests set result
@@ -50,7 +50,7 @@ from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_test, y_pred)
 print(cm)
 
-joblib.dump(classifier, 'humidity.pkl')
+pickle.dump(classifier,open( 'humidity_classifier.pkl', 'ab') )
 
 #-------------Features Importance random forest
 names = dataset.iloc[:,:-1].columns
@@ -72,3 +72,5 @@ count = 0;
 for i in range(len(y_pred)):
     if(y_pred[i] == y_test[i]):
         count+=1
+
+
