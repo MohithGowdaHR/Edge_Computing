@@ -1,7 +1,16 @@
 # Edge_Computing
 ## MicroPython
 
-###Model Performances
+### Model Performance:
 
-Temperature Predictor: loss: 0.5    - mse: 0.5
-Humidity Predictor   : loss: 0.7607 - mse: 0.7607
+  1. **Temperature Predictor:** 
+  
+      - loss: *0.5* 
+      
+      - mse: *0.5*
+
+  2. **Humidity Predictor:** 
+  
+      - loss: *0.7607* 
+      
+      - mse: *0.7607*
