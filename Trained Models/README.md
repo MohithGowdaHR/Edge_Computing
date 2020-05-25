@@ -1,5 +1,5 @@
 # Edge_Computing
-## MicroPython
+## TensorFlow and TensorFlow Lite
 
 ### Model Performance:
 
