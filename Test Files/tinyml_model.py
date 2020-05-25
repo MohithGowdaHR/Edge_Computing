@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Sun May 24 00:28:08 2020
+Created on Mon May 25 22:29:04 2020
 
 @author: mohithgowdahr
 """
-
 
 
 import tensorflow as tf
@@ -38,6 +37,4 @@ converter.optimizations = [tf.lite.Optimize.DEFAULT]
 tflite_model = converter.convert()
 
 # Save the model to disk
-open("temperature_predictor.tflite", "wb").write(tflite_model)
-
-#  command xxd -i humidity_predictor.tflite > humidity_predictor.h
+open("defa.tflite", "wb").write(tflite_model)
