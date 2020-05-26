@@ -1,4 +1,4 @@
-# Edge_Computing
+# Edge Computing
 
 ## TensorFlow and TensorFlow Lite
 
