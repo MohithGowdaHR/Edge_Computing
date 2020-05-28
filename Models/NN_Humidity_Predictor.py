@@ -31,7 +31,8 @@ model.predict([x[0:10].tolist()])
 
 model.save('Humidity_predictor_model')
 
-converter = tf.lite.TFLiteConverter.from_keras_model(model)
+load_model = tf.keras.models.load_model('Humidity_predictor_model')
+converter = tf.lite.TFLiteConverter.from_keras_model(load_model)
 converter.optimizations = [tf.lite.Optimize.DEFAULT]
 tflite_model = converter.convert()
 
