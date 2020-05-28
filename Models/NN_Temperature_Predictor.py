@@ -33,11 +33,12 @@ model.predict([x[0:5].tolist()])
 
 model.save('Temperature_predictor_model')
 
-converter = tf.lite.TFLiteConverter.from_keras_model(model)
+load_model = tf.keras.models.load_model('Temperature_predictor_model')
+converter = tf.lite.TFLiteConverter.from_keras_model(load_model)
 converter.optimizations = [tf.lite.Optimize.DEFAULT]
 tflite_model = converter.convert()
 
 # Save the model to disk
 open("temperature_predictor.tflite", "wb").write(tflite_model)
 
-#  command xxd -i humidity_predictor.tflite > humidity_predictor.h
+#  command xxd -i temperature_predictor.tflite > temperature_predictor.h
